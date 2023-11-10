@@ -1,0 +1,8 @@
+C:\Users\2022102020018\source\repos\protótipo\protótipo\bin\Debug\protótipo.dll
+C:\Users\2022102020018\source\repos\protótipo\protótipo\bin\Debug\protótipo.pdb
+C:\Users\2022102020018\source\repos\protótipo\protótipo\obj\Debug\protótipo.csproj.AssemblyReference.cache
+C:\Users\2022102020018\source\repos\protótipo\protótipo\obj\Debug\protótipo.UserControl1.resources
+C:\Users\2022102020018\source\repos\protótipo\protótipo\obj\Debug\protótipo.csproj.GenerateResource.cache
+C:\Users\2022102020018\source\repos\protótipo\protótipo\obj\Debug\protótipo.csproj.CoreCompileInputs.cache
+C:\Users\2022102020018\source\repos\protótipo\protótipo\obj\Debug\protótipo.dll
+C:\Users\2022102020018\source\repos\protótipo\protótipo\obj\Debug\protótipo.pdb

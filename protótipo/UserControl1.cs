@@ -19,23 +19,39 @@ namespace protótipo
             lorem.Text = string.Empty;
         }
 
-        void Inserir()
+       public void Inserir()
         {
-            var nomeFunc = "nomeE";
-            var cpfFunc = "cpfE";
+            string nome = tb_nome.Text;
+            DateTime dataNascimento = Convert.ToDateTime(dataTime);
+            string cpf = tb_cpf.Text;
+            string rg = tb_rg.Text;
+            string telefone = tb_telefone.Text;
+            string email = tb_email.Text;
+            string estadoCivil = cb_estadoCivil.Text;
+            string funcao = tb_funcao.Text;
+            double salario = Convert.ToDouble(tb_salario.Text);
 
             try
             {
                 Conexao conexao = new Conexao();
 
-                var comando = conexao.Comando("INSERT INTO funcionario (nome_func, cpf_func) VALUES (@nome, @cpf)");
+                var comando = conexao.Comando(
+                    "INSERT INTO funcionario (nome_fun, data_nasc_fun, cpf_fun, rg_fun, telefone_fun, email_fun, estado_civil_fun, funcao_fun, funcao_fun, salario_fun) VALUES (@nome, @dataNascimento, @cpf, @rg, @telefone, @email, @estadoCivil, @funcao, @salario)"
+                    );
 
-                comando.Parameters.AddWithValue("@nome", nomeFunc);
-                comando.Parameters.AddWithValue("@cpf", cpfFunc);
+                comando.Parameters.AddWithValue("@nome", nome);
+                comando.Parameters.AddWithValue("@dataNascimento", dataNascimento);
+                comando.Parameters.AddWithValue("@cpf", cpf);
+                comando.Parameters.AddWithValue("@rg", rg);
+                comando.Parameters.AddWithValue("@telefone", telefone);
+                comando.Parameters.AddWithValue("@email", email);
+                comando.Parameters.AddWithValue("@estadoCivil", estadoCivil);
+                comando.Parameters.AddWithValue("@funcao", funcao);
+                comando.Parameters.AddWithValue("@salario", salario);
 
                 var resultado = comando.ExecuteNonQuery();
 
-                if(resultado > 0)
+                if (resultado > 0)
                 {
                     MessageBox.Show("Funcionário cadastrado com sucesso");
                 }
@@ -49,7 +65,7 @@ namespace protótipo
             }
         }
 
-        void Consultar()
+        public string[] Consultar()
         {
             try
             {
@@ -59,25 +75,41 @@ namespace protótipo
 
                 var leitor = comando.ExecuteReader();
 
-                string resultado = null;
+                List<string> resultado = new List<string>();
 
                 while (leitor.Read())
                 {
-                    resultado += "\n" + leitor.GetString("nome_func");
+                    resultado.Add($"nome = {leitor.GetString("nome_fun")}");
                 }
 
-                MessageBox.Show(resultado);
+                return resultado.ToArray();
 
             }
 
             catch (Exception ex)
-            { 
+            {
                 MessageBox.Show(ex.Message);
+                return null;
             }
+            
         }
 
         private void salvar_Click(object sender, EventArgs e)
         {
+            Funcionario f = new Funcionario();
+            f.nome = tb_nome.Text;
+            f.dataNascimento = Convert.ToDateTime(dataTime);
+            f.cpf = tb_cpf.Text;
+            f.rg = tb_rg.Text;
+            f.telefone = tb_telefone.Text;
+            f.email = tb_email.Text;
+            f.estadoCivil = cb_estadoCivil.Text;
+            f.funcao = tb_funcao.Text;
+            f.salario = Convert.ToDouble(tb_salario.Text);
+
+            Consultar();
+            Inserir();
+
             string valor = tb_cpf.Text;
 
             if (tb_nome.Text == string.Empty ||
@@ -100,14 +132,17 @@ namespace protótipo
                 lorem.Text = string.Empty;
                 if (ValidarCPF.Validar(valor) == true)
                 {
-
+                    string[] funcionarios = Consultar();
+                    listBox99.Items.Clear();
+                    listBox99.Items.Add(funcionarios);
+                    listBox99.Refresh();
 
 
                 }
 
                 else 
                 {
-                    MessageBox.Show("CPF inválido!");
+                    MessageBox.Show("CPF inválido!", "disclaimer");
                 }
             }
              
@@ -125,12 +160,13 @@ namespace protótipo
             tb_funcao.Text = string.Empty;
             tb_salario.Text = string.Empty;
             cb_estadoCivil.Text = string.Empty;
-            dateTime.Text = string.Empty;
+            dataTime.Text = string.Empty;
             tb_telefone.Text = string.Empty;
             tb_cidade.Text = string.Empty;
             cb_estado.Text = string.Empty;
             lorem.Text = string.Empty;
         }
+
        
     }
 }

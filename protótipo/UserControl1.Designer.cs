@@ -39,7 +39,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.cb_estadoCivil = new System.Windows.Forms.ComboBox();
-            this.dateTime = new System.Windows.Forms.DateTimePicker();
+            this.dataTime = new System.Windows.Forms.DateTimePicker();
             this.tb_telefone = new System.Windows.Forms.MaskedTextBox();
             this.tb_cpf = new System.Windows.Forms.MaskedTextBox();
             this.tb_nome = new System.Windows.Forms.TextBox();
@@ -56,6 +56,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.cb_estado = new System.Windows.Forms.ComboBox();
             this.tb_cidade = new System.Windows.Forms.TextBox();
+            this.listBox99 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label1
@@ -170,13 +171,13 @@
             this.cb_estadoCivil.Size = new System.Drawing.Size(101, 25);
             this.cb_estadoCivil.TabIndex = 10;
             // 
-            // dateTime
+            // dataTime
             // 
-            this.dateTime.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTime.Location = new System.Drawing.Point(218, 121);
-            this.dateTime.Name = "dateTime";
-            this.dateTime.Size = new System.Drawing.Size(134, 23);
-            this.dateTime.TabIndex = 11;
+            this.dataTime.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataTime.Location = new System.Drawing.Point(218, 121);
+            this.dataTime.Name = "dataTime";
+            this.dataTime.Size = new System.Drawing.Size(134, 23);
+            this.dataTime.TabIndex = 11;
             // 
             // tb_telefone
             // 
@@ -348,10 +349,19 @@
             this.tb_cidade.Size = new System.Drawing.Size(100, 20);
             this.tb_cidade.TabIndex = 28;
             // 
+            // listBox99
+            // 
+            this.listBox99.FormattingEnabled = true;
+            this.listBox99.Location = new System.Drawing.Point(676, 33);
+            this.listBox99.Name = "listBox99";
+            this.listBox99.Size = new System.Drawing.Size(614, 394);
+            this.listBox99.TabIndex = 29;
+            // 
             // UserControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.listBox99);
             this.Controls.Add(this.tb_cidade);
             this.Controls.Add(this.cb_estado);
             this.Controls.Add(this.label13);
@@ -368,7 +378,7 @@
             this.Controls.Add(this.tb_nome);
             this.Controls.Add(this.tb_cpf);
             this.Controls.Add(this.tb_telefone);
-            this.Controls.Add(this.dateTime);
+            this.Controls.Add(this.dataTime);
             this.Controls.Add(this.cb_estadoCivil);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -381,7 +391,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "UserControl1";
-            this.Size = new System.Drawing.Size(681, 446);
+            this.Size = new System.Drawing.Size(1310, 446);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,7 +410,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox cb_estadoCivil;
-        private System.Windows.Forms.DateTimePicker dateTime;
+        private System.Windows.Forms.DateTimePicker dataTime;
         private System.Windows.Forms.MaskedTextBox tb_telefone;
         private System.Windows.Forms.MaskedTextBox tb_cpf;
         private System.Windows.Forms.TextBox tb_nome;
@@ -417,5 +427,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox cb_estado;
         private System.Windows.Forms.TextBox tb_cidade;
+        private System.Windows.Forms.ListBox listBox99;
     }
 }
